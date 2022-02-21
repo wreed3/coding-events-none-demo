@@ -3,6 +3,7 @@ package org.launchcode.codingevents.controllers;
 
 import org.launchcode.codingevents.data.EventData;
 import org.launchcode.codingevents.models.Event;
+import org.launchcode.codingevents.models.EventType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -22,9 +23,10 @@ public class EventController {
     }
 
     @GetMapping("create")
-    public String renderCreateEventForm(Model model){
+    public String displayCreateEventForm(Model model){
         model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
+        model.addAttribute("types",EventType.values());
         return "events/create";
     }
 
@@ -67,7 +69,7 @@ public class EventController {
     }
 
     @PostMapping("edit")
-    public String processEditForm(int eventId, String name, String description,String contactEmail, String location, boolean registration,int numOfAttendees, boolean covidPositive){
+    public String processEditForm(int eventId, String name, String description,String contactEmail, String location, boolean registration,int numOfAttendees, boolean covidPositive, EventType type){
             Event event = EventData.getById(eventId);
             event.getId();
             event.setName(name);
@@ -77,6 +79,7 @@ public class EventController {
             event.setRegistration(registration);
             event.setNumOfAttendees(numOfAttendees);
             event.setCovidPositive(covidPositive);
+            event.setType(type);
             EventData.add(event);
 
             return "redirect:";

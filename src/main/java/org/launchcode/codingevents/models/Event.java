@@ -32,12 +32,14 @@ public class Event {
     @AssertFalse(message="You can not be COVID positive and attend this event")
     boolean covidPositive;
 
+    private EventType type;
+
     public Event(){
         this.id = nextId;
         nextId++;
     }
 
-    public Event(String name, String description, String contactEmail, String location, boolean registration, int numOfAttendees, boolean covidPositive) {
+    public Event(String name, String description, String contactEmail, String location, boolean registration, int numOfAttendees, boolean covidPositive, EventType type) {
         this();
         this.name = name;
         this.description = description;
@@ -46,6 +48,7 @@ public class Event {
         this.registration = registration;
         this.numOfAttendees = numOfAttendees;
         this.covidPositive = covidPositive;
+        this.type = type;
 //        this.id = nextId;
 //        nextId++;
     }
@@ -108,6 +111,14 @@ public class Event {
 
     public void setCovidPositive(boolean covidPositive) {
         this.covidPositive = covidPositive;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     public int getId() {
