@@ -19,6 +19,31 @@
         </label>
     </div>
     <div class="form-group">
+        <label>Contact Email
+            <input type="text"  name="contactEmail" th:value="${event.contactEmail}"   class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Location
+            <input type="text"  name="location" th:value="${event.location}"   class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Are you registered?
+            <input type="checkbox"  name="registration" th:value="${event.registration}"   class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Number of Attendees
+            <input type="text"  name="numOfAttendees" th:value="${event.numOfAttendees}"   class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>COVID Positive
+            <input type="checkbox"  name="covidPositive" th:value="${event.covidPositive}"   class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
         <label>Edit
             <input type="hidden"  name="eventId" th:value="${eventId}"  class="form-control">
         </label>
