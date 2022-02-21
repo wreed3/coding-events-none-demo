@@ -67,11 +67,16 @@ public class EventController {
     }
 
     @PostMapping("edit")
-    public String processEditForm(int eventId, String name, String description){
+    public String processEditForm(int eventId, String name, String description,String contactEmail, String location, boolean registration,int numOfAttendees, boolean covidPositive){
             Event event = EventData.getById(eventId);
             event.getId();
             event.setName(name);
             event.setDescription(description);
+            event.setContactEmail((contactEmail));
+            event.setLocation(location);
+            event.setRegistration(registration);
+            event.setNumOfAttendees(numOfAttendees);
+            event.setCovidPositive(covidPositive);
             EventData.add(event);
 
             return "redirect:";
