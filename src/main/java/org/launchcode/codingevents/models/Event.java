@@ -1,11 +1,18 @@
 package org.launchcode.codingevents.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.*;
 import java.util.Objects;
 
+@Entity
 public class Event {
+
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextId = 1;
+//    private static int nextId = 1;
 
     @NotBlank(message="Name is required")
     @Size(min=3, max=50, message = "Name must be between 3 and  50 characters")
@@ -18,36 +25,36 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
-    @NotNull(message="Please provide a location")
-    @NotBlank(message="Location is required")
-    private String location;
-
-    @AssertTrue(message="Please register")
-    boolean registration;
-
-    @Min(value = 1, message="The number of attendees has to be greater than 0")
-    @NotNull(message="The number of attendees can not be empty")
-    private int numOfAttendees;
-
-    @AssertFalse(message="You can not be COVID positive and attend this event")
-    boolean covidPositive;
+//    @NotNull(message="Please provide a location")
+//    @NotBlank(message="Location is required")
+//    private String location;
+//
+//    @AssertTrue(message="Please register")
+//    boolean registration;
+//
+//    @Min(value = 1, message="The number of attendees has to be greater than 0")
+//    @NotNull(message="The number of attendees can not be empty")
+//    private int numOfAttendees;
+//
+//    @AssertFalse(message="You can not be COVID positive and attend this event")
+//    boolean covidPositive;
 
     private EventType type;
 
     public Event(){
-        this.id = nextId;
-        nextId++;
+//        this.id = nextId;
+//        nextId++;
     }
 
-    public Event(String name, String description, String contactEmail, String location, boolean registration, int numOfAttendees, boolean covidPositive, EventType type) {
-        this();
+    public Event(String name, String description, String contactEmail, EventType type) {
+//        this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
-        this.location = location;
-        this.registration = registration;
-        this.numOfAttendees = numOfAttendees;
-        this.covidPositive = covidPositive;
+//        this.location = location;
+//        this.registration = registration;
+//        this.numOfAttendees = numOfAttendees;
+//        this.covidPositive = covidPositive;
         this.type = type;
 //        this.id = nextId;
 //        nextId++;
@@ -81,37 +88,37 @@ public class Event {
         this.contactEmail = contactEmail;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public boolean isRegistration() {
-        return registration;
-    }
-
-    public void setRegistration(boolean registration) {
-        this.registration = registration;
-    }
-
-    public int getNumOfAttendees() {
-        return numOfAttendees;
-    }
-
-    public void setNumOfAttendees(int numOfAttendees) {
-        this.numOfAttendees = numOfAttendees;
-    }
-
-    public boolean isCovidPositive() {
-        return covidPositive;
-    }
-
-    public void setCovidPositive(boolean covidPositive) {
-        this.covidPositive = covidPositive;
-    }
+//    public String getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(String location) {
+//        this.location = location;
+//    }
+//
+//    public boolean isRegistration() {
+//        return registration;
+//    }
+//
+//    public void setRegistration(boolean registration) {
+//        this.registration = registration;
+//    }
+//
+//    public int getNumOfAttendees() {
+//        return numOfAttendees;
+//    }
+//
+//    public void setNumOfAttendees(int numOfAttendees) {
+//        this.numOfAttendees = numOfAttendees;
+//    }
+//
+//    public boolean isCovidPositive() {
+//        return covidPositive;
+//    }
+//
+//    public void setCovidPositive(boolean covidPositive) {
+//        this.covidPositive = covidPositive;
+//    }
 
     public EventType getType() {
         return type;
